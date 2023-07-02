@@ -1,4 +1,7 @@
-import './views/components/clock-component'
+import './views/components/clock-component';
+
+/* Styles */
+import '@styles/main.css';
 
 class Clock {
     constructor() {

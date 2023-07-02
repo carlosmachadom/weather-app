@@ -17,6 +17,21 @@ class clockViewComponent extends HTMLElement {
     getStyles() {
         return `
             <style>
+                :host {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                .clock-container {
+                    padding: 1rem 2rem;
+                }
+
+                .clock--text {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 4.5rem;
+                }
             </style>
         `
     }
@@ -25,8 +40,8 @@ class clockViewComponent extends HTMLElement {
         const template = document.createElement('template');
 
         template.innerHTML = `
-        <div>
-            <p>${this.dataset.hours}:${this.dataset.minutes}:${this.dataset.seconds} ${this.dataset.ds}</p>
+        <div class="clock-container" >
+            <p class="clock--text">${this.dataset.hours}:${this.dataset.minutes}:${this.dataset.seconds} ${this.dataset.ds}</p>
         </div>
         ${this.getStyles()}
         `
