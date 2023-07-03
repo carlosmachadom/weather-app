@@ -1,8 +1,11 @@
 function getCurrentDate() {
     let date = new Date();
     let year = date.getFullYear();
-    let month = date.getMonth();
-    let day = date.getDay();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
 
     return {
         year,
@@ -10,3 +13,5 @@ function getCurrentDate() {
         day
     }
 }
+
+export { getCurrentDate } 

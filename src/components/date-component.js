@@ -1,16 +1,16 @@
-class clockViewComponent extends HTMLElement {
+class DateComponent extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
     }
 
     static get observedAttributes() {
-        return ['hours', 'minutes', 'seconds', 'ds'];
+        return ['day', 'month', 'year'];
     }
 
-    attributeChangesCallback(attr, oldVal, newVal) {
+    attributeChangedCallback(attr, oldVal, newVal) {
         if (oldVal !== newVal) {
-            this[attr] = newVal
+            this[attr] = newVal;
         }
     }
 
@@ -23,28 +23,28 @@ class clockViewComponent extends HTMLElement {
                     box-sizing: border-box;
                 }
 
-                .clock-container {
-                    padding: 1rem 2rem;
+                .date-container {
+                    padding: 0 2rem;
                 }
 
-                .clock--text {
+                .date--text {
                     margin: 0;
                     padding: 0;
-                    font-size: 4.5rem;
+                    font-size: 3.5rem;
                 }
             </style>
-        `
+        `;
     }
 
     getTemplate() {
         const template = document.createElement('template');
 
         template.innerHTML = `
-        <div class="clock-container" >
-            <p class="clock--text">${this.dataset.hours}:${this.dataset.minutes}:${this.dataset.seconds} ${this.dataset.ds}</p>
-        </div>
-        ${this.getStyles()}
-        `
+            <div class="date-container">
+                <p class="date--text">${this.dataset.day}/${this.dataset.month}/${this.dataset.year}</p>
+            </div>
+            ${this.getStyles()}
+        `;
 
         return template;
     }
@@ -58,4 +58,4 @@ class clockViewComponent extends HTMLElement {
     }
 }
 
-customElements.define("clock-tag", clockViewComponent);
+customElements.define('date-component', DateComponent);

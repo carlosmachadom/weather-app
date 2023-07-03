@@ -1,5 +1,6 @@
 /* Components */
-import '@components/clock-component.js';
+import '@components/time-component.js';
+import '@components/date-component.js';
 
 /* Styles */
 import '@styles/main.css';

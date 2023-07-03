@@ -1,9 +1,11 @@
 /* Logic */
-import { startClock } from '@logic/clock-logic.js';
+import { insertTime } from '@logic/time-logic.js';
+import { insertDate } from '@logic/date-logic';
 
 (async function App() {
     try {
-        startClock();
+        insertTime();
+        insertDate();
     } catch (err) {
         throw new Error(err);
     }

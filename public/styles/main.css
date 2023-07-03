@@ -9,13 +9,17 @@ html {
 }
 
 body {
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    min-height: 100svh;
 }
 
 main.app {
     width: 100%;
-    height: 100vh;
+    min-height: 100svh;
     display: grid;
     place-items: center;
+}
+
+.clock {
+    text-align: center;
 }

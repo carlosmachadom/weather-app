@@ -1,4 +1,4 @@
-export default class Clock {
+export default class TimeModel {
     constructor() {
         this.hours = 0;
         this.minutes = 0;

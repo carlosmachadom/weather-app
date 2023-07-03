@@ -1,9 +1,8 @@
-export default class ClockController {
+export default class TimeController {
     constructor({ model, view }) {
         this.model = model;
-        this.view = view
+        this.view = view;
     }
-
 
     updateHours({ hours, minutes, seconds, ds }) {
         this.model.setHour({ hours, minutes, seconds, ds });
