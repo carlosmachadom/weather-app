@@ -6,7 +6,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./public/js/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].[contenthash].js",
@@ -17,17 +17,23 @@ module.exports = {
     resolve: {
         extensions: [".js"],
         alias: {
+            '@app': path.resolve(__dirname, 'src'),
+            '@models': path.resolve(__dirname, 'src/models'),
+            '@views': path.resolve(__dirname, 'src/views'),
+            '@controllers': path.resolve(__dirname, 'src/controllers'),
+            '@logic': path.resolve(__dirname, 'src/logic'),
+            '@components': path.resolve(__dirname, 'src/components'),
             '@utils': path.resolve(__dirname, 'src/utils/'),
-            '@styles': path.resolve(__dirname, 'src/styles/'),
-            '@assets': path.resolve(__dirname, 'src/assets/'),
-            '@fonts': path.resolve(__dirname, 'src/assets/fonts/'),
-            '@images': path.resolve(__dirname, 'src/assets/images/')
+            '@styles': path.resolve(__dirname, 'public/styles/'),
+            '@assets': path.resolve(__dirname, 'public/assets/'),
+            '@fonts': path.resolve(__dirname, 'public/assets/fonts/'),
+            '@images': path.resolve(__dirname, 'public/assets/images/')
         }
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -59,15 +65,15 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             inject: true,
-            template: './public/index.html',
+            template: './public/html/index.html',
             filename: './index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/styles/[name].[contenthash].css'
+            filename: 'styles/[name].[contenthash].css'
         }),
         new DotEnv(),
         // new FaviconsWebpackPlugin(''),
-        // new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin()
     ],
     devServer: {
         static:
