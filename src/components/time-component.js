@@ -30,7 +30,7 @@ class TimeComponent extends HTMLElement {
                 .time--text {
                     margin: 0;
                     padding: 0;
-                    font-size: 4.5rem;
+                    font-size: 4.8rem;
                 }
             </style>
         `

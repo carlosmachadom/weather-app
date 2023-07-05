@@ -1,9 +1,7 @@
 export default class DateView {
-    renderDate({ day, month, year }) {
+    renderDate(currentDate) {
         let date = document.createElement('date-component');
-        date.dataset.day = day;
-        date.dataset.month = month;
-        date.dataset.year = year;
+        date.dataset.date = currentDate;
 
         const clock = null || document.querySelector('.clock');
 

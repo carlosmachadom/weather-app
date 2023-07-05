@@ -1,17 +1,20 @@
 function getCurrentDate() {
     let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
 
-    month = month < 10 ? `0${month}` : month;
-    day = day < 10 ? `0${day}` : day;
+    let currentTimeZone = Intl.DateTimeFormat().resolvedOptions();
+    const region = Intl.DateTimeFormat().resolvedOptions();
 
-    return {
-        year,
-        month,
-        day
+    let dateOptions = {
+        timeZone: currentTimeZone.timeZone,
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long'
     }
+
+    let currentDate = date.toLocaleDateString(region.locale, dateOptions).split('/');
+
+    return currentDate;
 }
 
 export { getCurrentDate } 

@@ -1,9 +1,19 @@
 function getCurrentTime() {
     let time = new Date();
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-    let seconds = time.getSeconds();
-    let dayState = 'AM';
+
+    let currentTimeZone = Intl.DateTimeFormat().resolvedOptions();
+    let optionZone = { timeZone: currentTimeZone.timeZone }
+
+    const region = Intl.DateTimeFormat().resolvedOptions();
+
+    let timeToWork = time.toLocaleTimeString(region.locale, optionZone);
+    let formatFractured = timeToWork.split(' ');
+
+    let currentTime = formatFractured[0].split(':');
+    let hours = parseInt(currentTime[0]);
+    let minutes = parseInt(currentTime[1]);
+    let seconds = parseInt(currentTime[2]);
+    let dayState = formatFractured[1];
 
     if (hours > 12) {
         hours = hours - 12;

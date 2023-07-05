@@ -4,15 +4,13 @@ export default class DateController {
         this.view = view;
     }
 
-    updateDate({ day, month, year }) {
-        this.model.setDate({ day, month, year });
+    updateDate(date) {
+        this.model.setDate(date);
     }
 
     getCurrentDate() {
-        let day = this.model.getDay();
-        let month = this.model.getMonth();
-        let year = this.model.getYear();
+        let date = this.model.getDate();
 
-        this.view.renderDate({ day, month, year });
+        this.view.renderDate(date);
     }
 }
