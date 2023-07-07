@@ -1,3 +1,49 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 300;
+    src: url('@fonts/Manrope-Light.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 400;
+    src: url('@fonts/Manrope-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    src: url('@fonts/Manrope-Medium.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    src: url('@fonts/Manrope-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 800;
+    src: url('@fonts/Manrope-ExtraBold.ttf') format('ttf');
+}
+
+:root {
+    --black: rgba(40, 6, 40, 1);
+    --black-transparent: rgba(40, 6, 40, 0.1);
+    --gray: rgb(117, 95, 117);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,20 +52,59 @@
 
 html {
     font-size: 62.5%;
+    font-family: 'Manrope', sans-serif;
+    color: var(--black);
 }
 
 body {
     width: 100vw;
     min-height: 100svh;
-}
-
-main.app {
-    width: 100%;
-    min-height: 100svh;
+    padding: 0 2.4rem;
     display: grid;
     place-items: center;
+    background-color: var(--black);
 }
 
-.clock {
-    text-align: center;
+.app {
+    width: clamp(300px, 100%, 1920px);
+    min-height: 80svh;
+
+    border: 4px var(--gray) solid;
+
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-template-rows: 1fr;
+}
+
+.highlights {
+    padding: 2rem;
+}
+
+.header__weather-title {
+    font-size: 4rem;
+    color: var(--gray);
+    font-weight: bold;
+}
+
+.highlights .highlights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header--day-time {
+    display: flex;
+    height: fit-content;
+}
+
+.header--day-time .date-layout {
+    margin-inline-end: 1rem;
+    padding-inline-end: 1rem;
+    border-inline-end: 1px solid var(--gray);
+}
+
+.day-status {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--gray);
 }

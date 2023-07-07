@@ -12,9 +12,19 @@ function getCurrentDate() {
         weekday: 'long'
     }
 
-    let currentDate = date.toLocaleDateString(region.locale, dateOptions).split('/');
+    let currentDate = date.toLocaleDateString(region.locale, dateOptions).split(' ');
 
-    return currentDate;
+    let day = currentDate[2].split(',')[0];
+    let month = currentDate[1];
+    let year = currentDate[3];
+
+    day = day < 10 ? `0${day}` : day;
+
+    return {
+        day,
+        month,
+        year
+    };
 }
 
 export { getCurrentDate } 

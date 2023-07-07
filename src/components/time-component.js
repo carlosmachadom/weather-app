@@ -24,13 +24,16 @@ class TimeComponent extends HTMLElement {
                 }
 
                 .time-container {
-                    padding: 1rem 2rem;
+                    padding: 0;
                 }
 
                 .time--text {
                     margin: 0;
                     padding: 0;
-                    font-size: 4.8rem;
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    color: var(--gray);
+                    font-weight: bold;
                 }
             </style>
         `

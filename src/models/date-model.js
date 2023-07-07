@@ -1,13 +1,25 @@
 export default class DateModel {
     constructor() {
-        this.date = 0
+        this.day = 0;
+        this.month = '';
+        this.year = 0;
     }
 
-    setDate(date) {
-        this.date = date;
+    setDate({ day, month, year }) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
-    getDate() {
-        return this.date;
+    getDay() {
+        return this.day;
+    }
+
+    getMonth() {
+        return this.month;
+    }
+
+    getYear() {
+        return this.year;
     }
 }

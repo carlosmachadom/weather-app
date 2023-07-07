@@ -17,7 +17,11 @@ function insertDate() {
 
     const currentDate = getCurrentDate();
 
-    dateController.updateDate(currentDate);
+    dateController.updateDate({
+        day: currentDate.day,
+        month: currentDate.month,
+        year: currentDate.year,
+    });
 
     dateController.getCurrentDate();
 }

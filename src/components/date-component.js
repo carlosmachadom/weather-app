@@ -5,7 +5,7 @@ class DateComponent extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['date'];
+        return ['day', 'month', 'year'];
     }
 
     attributeChangedCallback(attr, oldVal, newVal) {
@@ -24,13 +24,16 @@ class DateComponent extends HTMLElement {
                 }
 
                 .date-container {
-                    padding: 0 2rem;
+                    padding: 0;
                 }
 
                 .date--text {
                     margin: 0;
                     padding: 0;
-                    font-size: 2.8rem;
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    color: var(--gray);
+                    font-weight: bold;
                 }
             </style>
         `;
@@ -41,7 +44,7 @@ class DateComponent extends HTMLElement {
 
         template.innerHTML = `
             <div class="date-container">
-                <p class="date--text">${this.dataset.date}</p>
+                <p class="date--text">${this.dataset.day} ${this.dataset.month} ${this.dataset.year}</p>
             </div>
             ${this.getStyles()}
         `;
