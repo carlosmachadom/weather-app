@@ -39,9 +39,9 @@
 }
 
 :root {
-    --black: rgba(40, 6, 40, 1);
-    --black-transparent: rgba(40, 6, 40, 0.1);
-    --gray: rgb(117, 95, 117);
+    --black: #100E1D;
+    --gray: #1E213A;
+    --white: #f3f4fa;
 }
 
 * {
@@ -82,7 +82,7 @@ body {
 
 .header__weather-title {
     font-size: 4rem;
-    color: var(--gray);
+    color: var(--white);
     font-weight: bold;
 }
 
@@ -100,7 +100,7 @@ body {
 .header--day-time .date-layout {
     margin-inline-end: 1rem;
     padding-inline-end: 1rem;
-    border-inline-end: 1px solid var(--gray);
+    border-inline-end: 1px solid var(--white);
 }
 
 .day-status {
