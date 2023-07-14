@@ -24,6 +24,7 @@ module.exports = {
             '@logic': path.resolve(__dirname, 'src/logic'),
             '@components': path.resolve(__dirname, 'src/components'),
             '@utils': path.resolve(__dirname, 'src/utils/'),
+            '@helpers': path.resolve(__dirname, 'src/helpers/'),
             '@styles': path.resolve(__dirname, 'public/styles/'),
             '@assets': path.resolve(__dirname, 'public/assets/'),
             '@fonts': path.resolve(__dirname, 'public/assets/fonts/'),

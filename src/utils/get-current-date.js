@@ -1,11 +1,10 @@
-function getCurrentDate() {
+function getCurrentDate(tz) {
     let date = new Date();
-
-    let currentTimeZone = Intl.DateTimeFormat().resolvedOptions();
+    let currentTimeZone = tz;
     const region = Intl.DateTimeFormat().resolvedOptions();
 
     let dateOptions = {
-        timeZone: currentTimeZone.timeZone,
+        timeZone: currentTimeZone,
         year: 'numeric',
         month: 'long',
         day: 'numeric',

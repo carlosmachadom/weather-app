@@ -21,7 +21,7 @@ class DayLocation extends HTMLElement {
                     width: 100%;
                 }
 
-                .reset-box {
+                .rb{
                     margin: 0;
                     padding: 0;
                     box-sizing: border-box;
@@ -29,6 +29,7 @@ class DayLocation extends HTMLElement {
 
                 .general-status {
                     width: 100%;
+                    margin-block-start: 3rem;
                 }
 
                 .status--img {
@@ -60,14 +61,14 @@ class DayLocation extends HTMLElement {
         const template = document.createElement('template');
 
         template.innerHTML = `
-            <article class="reset-box general-status">
-                <figure class="reset-box status--img">
-                    <img class="reset-box" src="${this.dataset.stateImage}" alt="${this.dataset.state}" />
+            <article class="rb general-status">
+                <figure class="rb status--img">
+                    <img class="rb" src="${this.dataset.stateImage}" alt="${this.dataset.state}" />
                 </figure>
-                <h4 class="reset-box status--degrees">${this.dataset.degrees}</h4>
-                <p class="reset-box status-location">
-                    <span class="reset-box status--city">${this.dataset.city}</span> /
-                    <span class="reset-box status--country">${this.dataset.country}</span>
+                <h4 class="rb status--degrees">${this.dataset.degrees}</h4>
+                <p class="rb status-location">
+                    <span class="rb status--city">${this.dataset.city}</span> /
+                    <span class="rb status--country">${this.dataset.country}</span>
                 </p>
             </article>
         
