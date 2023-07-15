@@ -16,10 +16,6 @@ async function handleSuccess(pos) {
     return { latitude, longitude };
 }
 
-function handleError(err) {
-    throw new Error(`ERROR(${err.code}): ${err.message}`);
-}
-
 function getUserLocationWithFallback() {
     return new Promise((resolve) => {
         const fallbackLocation = { latitude: 0, longitude: 0 };
@@ -34,7 +30,6 @@ export default async function getUserLocation() {
         let data = await { latitude, longitude }
         return data;
     } catch (error) {
-        // handleError(error);
         return await getUserLocationWithFallback();
     }
 }

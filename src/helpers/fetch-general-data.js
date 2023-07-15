@@ -1,6 +1,19 @@
-export default async function fetchData({ API, options }) {
+const KEY = process.env.API_KEY;
+const API = process.env.API_WEATHER_DATA;
+
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': KEY,
+        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    }
+};
+
+export default async function fetchData({ endpoint, query }) {
+    const ENDPOINT = endpoint;
+    const QUERY = query;
     try {
-        let response = await fetch(API, options);
+        let response = await fetch(`${API}${ENDPOINT}${QUERY}`, options);
         let data = await response.json();
         return data;
     } catch (e) {

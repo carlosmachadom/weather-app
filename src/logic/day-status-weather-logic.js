@@ -45,4 +45,14 @@ function insertDayStatusComponent(obj) {
     dayStatusController.getCurrentData();
 }
 
-export { insertDayLocationComponent, insertDayStatusComponent };
+function insertDayConditionText(condition) {
+    let dayCondition = condition;
+    let generalStatusTitle = null || document.querySelector('.header__weather-title');
+    let contentStatus = generalStatusTitle.innerHTML;
+
+    if (contentStatus === "" || contentStatus !== "") {
+        generalStatusTitle.innerHTML = dayCondition;
+    }
+}
+
+export { insertDayLocationComponent, insertDayStatusComponent, insertDayConditionText };

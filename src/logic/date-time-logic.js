@@ -49,4 +49,10 @@ function insertTime(tz) {
     timeController.getCurrentHour();
 }
 
-export { insertDate, insertTime };
+function insertDateTimeComponents(tz) {
+    let timezone = tz;
+    insertDate(timezone);
+    insertTime(timezone);
+}
+
+export { insertDateTimeComponents };

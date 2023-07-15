@@ -27,6 +27,17 @@ class DayWeatherStatus extends HTMLElement {
                     box-sizing: border-box;
                 }
 
+                .title-container {
+                    width: 100%;
+                    padding: 2rem 0 0 0;
+                }
+
+                .title-container h3 {
+                    font-size: 2.4rem;
+                    text-align: center;
+                    margin-block-end: 2rem;
+                }
+
                 .status-wrapper {
                     width: 100%;
                     padding: 2rem 0;
@@ -68,6 +79,9 @@ class DayWeatherStatus extends HTMLElement {
     getTemplate() {
         const template = document.createElement('template');
         template.innerHTML = `
+            <div class="rb title-container">
+                <h3 class="rb">Today's Highlights</h3>
+            </div>
             <div class="rb status-wrapper">
                 <article class="rb status-card">
                     <h3 class="rb card--title">Wind Status</h3>
