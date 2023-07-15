@@ -65,6 +65,14 @@ body {
     background-color: var(--black);
 }
 
+ul>li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .app {
     width: clamp(300px, 100%, 1440px);
     min-height: 80svh;
@@ -82,10 +90,13 @@ body {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .highlights-header {
-    padding: 2rem 0;
+    padding: 0;
 }
 
 .header__weather-title {
@@ -135,8 +146,14 @@ body {
 }
 
 .day-location-layout {
-    padding: 6rem 0;
+    padding: 4rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.forecast-wrapper .carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
 }

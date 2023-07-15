@@ -1,10 +1,8 @@
 function getCurrentTime(tz) {
     let time = new Date();
 
-    // let currentTimeZone = Intl.DateTimeFormat().resolvedOptions();
     let currentTimeZone = tz;
 
-    //let optionZone = { timeZone: currentTimeZone.timeZone }
     let optionZone = { timeZone: currentTimeZone }
 
     const region = Intl.DateTimeFormat().resolvedOptions();

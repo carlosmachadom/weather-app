@@ -4,8 +4,8 @@ export default class TimeController {
         this.view = view;
     }
 
-    updateHours({ hours, minutes, seconds, ds }) {
-        this.model.setHour({ hours, minutes, seconds, ds });
+    updateHours({ hours, minutes, seconds, ds, tz }) {
+        this.model.setHour({ hours, minutes, seconds, ds, tz });
     }
 
     getCurrentHour() {
@@ -13,7 +13,8 @@ export default class TimeController {
         let minutes = this.model.getMinutes();
         let seconds = this.model.getSeconds();
         let ds = this.model.getDayState();
-        this.view.renderTime({ hours, minutes, seconds, ds });
-        this.view.updateTime();
+        let tz = this.model.getTimezone();
+        this.view.renderTime({ hours, minutes, seconds, ds, tz });
+        this.view.updateTime(tz);
     }
 }

@@ -28,14 +28,13 @@ class DayWeatherStatus extends HTMLElement {
                 }
 
                 .title-container {
+                    margin-block-start: 2rem;
                     width: 100%;
-                    padding: 2rem 0 0 0;
                 }
 
                 .title-container h3 {
                     font-size: 2.4rem;
                     text-align: center;
-                    margin-block-end: 2rem;
                 }
 
                 .status-wrapper {

@@ -43,7 +43,8 @@ function insertTime(tz) {
         hours: currenTime.hours,
         minutes: currenTime.minutes,
         seconds: currenTime.seconds,
-        ds: currenTime.dayState
+        ds: currenTime.dayState,
+        tz: timezone
     });
 
     timeController.getCurrentHour();

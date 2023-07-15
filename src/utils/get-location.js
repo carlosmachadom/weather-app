@@ -18,7 +18,7 @@ async function handleSuccess(pos) {
 
 function getUserLocationWithFallback() {
     return new Promise((resolve) => {
-        const fallbackLocation = { latitude: 0, longitude: 0 };
+        const fallbackLocation = { latitude: 40.71, longitude: -74.01 };
         resolve(fallbackLocation);
     });
 }

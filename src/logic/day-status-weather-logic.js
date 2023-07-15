@@ -8,6 +8,11 @@ import DayStatusModel from "@models/day-status-weather-model";
 import DayStatusView from "@views/day-status-weather-view";
 import DayStatusController from "@controllers/day-status-weather-controller";
 
+/* Hourly Status elements */
+import HourWeatherModel from "@models/hour-weather-model";
+import HourWeatherView from "@views/hour-weather-view";
+import HourWeatherController from "@controllers/hour-weather-controller";
+
 /* Renderind day and location data */
 function insertDayLocationComponent(obj) {
     let dayLocationModel = new DayLocationModel();
@@ -45,14 +50,16 @@ function insertDayStatusComponent(obj) {
     dayStatusController.getCurrentData();
 }
 
-function insertDayConditionText(condition) {
-    let dayCondition = condition;
-    let generalStatusTitle = null || document.querySelector('.header__weather-title');
-    let contentStatus = generalStatusTitle.innerHTML;
+/* Rendering Hourly Condition */
+function insertHourStatusComponent(forecast) {
+    let hourStatusModel = new HourWeatherModel();
+    let hourStatusView = new HourWeatherView();
+    let hourStatusController = new HourWeatherController({ model: hourStatusModel, view: hourStatusView });
 
-    if (contentStatus === "" || contentStatus !== "") {
-        generalStatusTitle.innerHTML = dayCondition;
-    }
+    let data = forecast;
+
+    hourStatusController.updateHours(data);
+    hourStatusController.getCurrentHour();
 }
 
-export { insertDayLocationComponent, insertDayStatusComponent, insertDayConditionText };
+export { insertDayLocationComponent, insertDayStatusComponent, insertHourStatusComponent };

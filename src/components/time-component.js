@@ -5,7 +5,7 @@ class TimeComponent extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['hours', 'minutes', 'seconds', 'ds'];
+        return ['hours', 'minutes', 'seconds', 'ds', 'tz'];
     }
 
     attributeChangedCallback(attr, oldVal, newVal) {
@@ -44,7 +44,7 @@ class TimeComponent extends HTMLElement {
 
         template.innerHTML = `
         <div class="time-container" >
-            <p class="time--text">${this.dataset.hours}:${this.dataset.minutes}:${this.dataset.seconds} ${this.dataset.ds}</p>
+            <p class="time--text" data-timezone="${this.dataset.tz}">${this.dataset.hours}:${this.dataset.minutes}:${this.dataset.seconds} ${this.dataset.ds}</p>
         </div>
         ${this.getStyles()}
         `

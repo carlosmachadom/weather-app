@@ -4,13 +4,15 @@ export default class TimeModel {
         this.minutes = 0;
         this.seconds = 0;
         this.ds = "";
+        this.tz = "";
     }
 
-    setHour({ hours, minutes, seconds, ds }) {
+    setHour({ hours, minutes, seconds, ds, tz }) {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
         this.ds = ds;
+        this.tz = tz;
     }
 
     getHour() {
@@ -27,5 +29,9 @@ export default class TimeModel {
 
     getDayState() {
         return this.ds;
+    }
+
+    getTimezone() {
+        return this.tz;
     }
 }

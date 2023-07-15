@@ -1,12 +1,13 @@
 import { getCurrentTime } from "@utils/get-curren-time";
 
 export default class TimeView {
-    renderTime({ hours, minutes, seconds, ds }) {
+    renderTime({ hours, minutes, seconds, ds, tz }) {
         let time = document.createElement('time-component');
         time.dataset.hours = hours;
         time.dataset.minutes = minutes;
         time.dataset.seconds = seconds;
         time.dataset.ds = ds;
+        time.dataset.tz = tz;
 
         const clock = null || document.querySelector('.clock');
 
@@ -15,9 +16,10 @@ export default class TimeView {
         }
     }
 
-    updateTime() {
+    updateTime(tz) {
+        let timezone = tz;
         setInterval(() => {
-            const currenTime = getCurrentTime();
+            const currenTime = getCurrentTime(timezone);
             const time = document.querySelector('time-component');
 
             if (time !== null) {

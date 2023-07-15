@@ -29,7 +29,17 @@ class DayLocation extends HTMLElement {
 
                 .general-status {
                     width: 100%;
-                    margin-block-start: 3rem;
+                    margin-block-start: 2rem;
+                }
+
+                .status--title {
+                    font-size: 3rem;
+                    word-break: break-word;
+                    line-height: 3.2rem;
+                    color: var(--white);
+                    font-weight: bold;
+                    text-align: center;
+                    margin-block-end: 2rem;
                 }
 
                 .status--img {
@@ -62,6 +72,7 @@ class DayLocation extends HTMLElement {
 
         template.innerHTML = `
             <article class="rb general-status">
+                <h2 class="rb status--title">${this.dataset.state}</h2>
                 <figure class="rb status--img">
                     <img class="rb" src="${this.dataset.stateImage}" alt="${this.dataset.state}" />
                 </figure>
