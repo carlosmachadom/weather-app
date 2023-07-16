@@ -124,11 +124,33 @@ a {
 
 .day-status {
     width: 100%;
-    padding: 2rem;
+    padding: 4rem 2rem;
     background-color: var(--gray);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.change-location {
+.desired-location-container {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.desired-location-input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-block-start: 1rem;
+}
+
+.desired-location-input:focus {
+    outline: var(--black) solid 4px;
+}
+
+.search-city-btn,
+.your-location-btn {
     width: 100%;
     padding: 1.2rem;
     background-color: var(--black);
@@ -140,13 +162,23 @@ a {
     margin-block-start: 2rem;
 }
 
-.change-location:hover {
+.search-city-btn:hover,
+.your-location-btn:hover {
     background-color: var(--white);
     color: var(--black);
 }
 
+.buttons-separator {
+    margin-block-start: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.form-city-selector {
+    width: 100%;
+}
+
 .day-location-layout {
-    padding: 4rem 0;
     display: flex;
     justify-content: center;
     align-items: center;

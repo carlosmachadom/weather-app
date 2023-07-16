@@ -2,17 +2,22 @@ import { getCurrentTime } from "@utils/get-curren-time";
 
 export default class TimeView {
     renderTime({ hours, minutes, seconds, ds, tz }) {
-        let time = document.createElement('time-component');
-        time.dataset.hours = hours;
-        time.dataset.minutes = minutes;
-        time.dataset.seconds = seconds;
-        time.dataset.ds = ds;
-        time.dataset.tz = tz;
+        let newTime = document.createElement('time-component');
+        newTime.classList.add('current');
+        newTime.dataset.hours = hours;
+        newTime.dataset.minutes = minutes;
+        newTime.dataset.seconds = seconds;
+        newTime.dataset.ds = ds;
+        newTime.dataset.tz = tz;
 
-        const clock = null || document.querySelector('.clock');
+        const clockLayout = null || document.querySelector('.clock');
+        const initialClock = null || document.querySelector('time-component.initial-state')
+        const currentClock = null || document.querySelector('time-component.current')
 
-        if (clock !== null) {
-            clock.appendChild(time);
+        if (clockLayout) {
+            if (initialClock) initialClock.remove();
+            if (currentClock) currentClock.remove();
+            clockLayout.appendChild(newTime);
         }
     }
 
@@ -22,7 +27,7 @@ export default class TimeView {
             const currenTime = getCurrentTime(timezone);
             const time = document.querySelector('time-component');
 
-            if (time !== null) {
+            if (time) {
                 time.dataset.hours = currenTime.hours;
                 time.dataset.minutes = currenTime.minutes;
                 time.dataset.seconds = currenTime.seconds;
@@ -31,7 +36,7 @@ export default class TimeView {
 
             const component = null || document.querySelector('time-component').shadowRoot;
 
-            if (component !== null) {
+            if (component) {
                 let timeText = null || component.childNodes[1].childNodes[1];
                 timeText.textContent = `${time.dataset.hours}:${time.dataset.minutes}:${time.dataset.seconds} ${time.dataset.ds}`;
             }

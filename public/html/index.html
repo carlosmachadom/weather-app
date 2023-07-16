@@ -19,13 +19,15 @@
                 <section class="header--day-time">
                     <div class="date-layout">
                         <div class="date">
-
+                            <date-component class="initial-state" data-day="dd" data-month="mm" data-year="yyyy">
+                            </date-component>
                         </div>
                     </div>
 
                     <div class="clock-layout">
                         <div class="clock">
-
+                            <time-component class="initial-state" data-hours="00" data-minutes="00" data-seconds="00"
+                                data-ds="" data-tz=""></time-component>
                         </div>
                     </div>
                 </section>
@@ -33,29 +35,91 @@
 
             <section class="highlights--day-status">
                 <div class="day-status-layout">
-
+                    <day-weather-status-component class="initial-state" data-wind-status="00" data-humidity="00"
+                        data-visibility="0" data-air-pressure="00"></day-weather-status-component>
                 </div>
             </section>
 
             <section class="highlights--day-forecast">
                 <div class="forecast-wrapper">
                     <ul class="carousel">
-
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
+                        <li class="list-hour-item initial-state">
+                            <hour-weather-component data-hour="00:00" data-icon="#" data-temp="00"
+                                data-condition=""></hour-weather-component>
+                        </li>
                     </ul>
                 </div>
             </section>
         </div>
 
         <section class="day-status">
-            <button class="change-location">Select new position</button>
-
             <div class="day-location-layout">
-
+                <date-location-component class="initial-state" data-degrees="00°C" data-city="City"
+                    data-country="Country" data-state="Condition" data-state-image="#"></date-location-component>
             </div>
 
             <div class="week-forecast-wrapper">
 
             </div>
+
+            <form action="" class="form-city-selector">
+
+                <label for="city" class="desired-location-container">
+                    Enter a City Name:
+                    <input id="city" class="desired-location-input" placeholder="E.g., New York, London, Tokyo"
+                        type="text" />
+                </label>
+
+                <button class="search-city-btn" type="button">Search</button>
+                <div class="buttons-separator">
+                    or
+                </div>
+                <button class="your-location-btn" type="button">Select Current Location</button>
+            </form>
         </section>
     </main>
 </body>
