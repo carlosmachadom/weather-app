@@ -10,14 +10,6 @@ export default class DateView {
         const initialDate = document.querySelector('date-component.initial-state');
         const currentDate = document.querySelector('date-component.current');
 
-        /* if (dateLayout && initialDate) {
-            initialDate.remove();
-            dateLayout.appendChild(newDate);
-        } else if (dateLayout && currentDate) {
-            currentDate.remove();
-            dateLayout.appendChild(newDate);
-        } */
-
         if (dateLayout) {
             if (initialDate) initialDate.remove();
             if (currentDate) currentDate.remove();
