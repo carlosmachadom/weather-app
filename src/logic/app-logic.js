@@ -3,6 +3,7 @@ import { insertDayLocationComponent, insertDayStatusComponent, insertHourStatusC
 import getUserLocation from "@utils/get-location";
 import getCurrentData from "@utils/get-current-weather-data";
 import getHourlyForecast from '@utils/get-hourly-forecast-data';
+import getInitialScroll from '@utils/get-initial-scroll';
 
 export default async function setWeatherData() {
     let { latitude, longitude } = await getUserLocation();
@@ -32,4 +33,7 @@ export default async function setWeatherData() {
     insertDayLocationComponent(dayLocationData);
     insertDayStatusComponent(dayStatusData);
     insertHourStatusComponent(forecast);
+
+    const carousel = document.querySelector('.carousel');
+    carousel.scrollLeft = getInitialScroll();
 }

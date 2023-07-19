@@ -28,9 +28,19 @@ class HourWeatherComponent extends HTMLElement {
                 }     
                 
                 .card {
+                    width: 100%;
+                    min-width: 100px;
+                    max-width: 120px; 
+                    min-height: 100px;
                     padding: 1.2rem;
                     background-color: var(--gray);
                     text-align: center;
+                    cursor: grab;
+                    user-select: none;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
                 }
 
                 .card--hour {
@@ -61,7 +71,7 @@ class HourWeatherComponent extends HTMLElement {
         template.innerHTML = `
             <div class="rb card">
                 <p class="rb card--hour">${this.dataset.hour}</p>
-                <img class="rb card--img" src="${this.dataset.icon}" title="${this.dataset.condition}" alt="${this.dataset.condition}"/>
+                <img class="rb card--img" src="${this.dataset.icon}" title="${this.dataset.condition}" alt="${this.dataset.condition}" draggable="false"/>
                 <p class="rb card--temp">${this.dataset.temp}</p>
             </div>
             ${this.getStyles()}
