@@ -14,7 +14,8 @@ function getInitialScroll() {
         const [hour, state] = componentHour.split(' ');
 
         if (state === currentState && parseInt(hour) === currentHour) {
-            scrollPosition = card.offsetLeft - (2 * card.offsetWidth);
+            card.classList.add('current-hour');
+            scrollPosition = card.offsetLeft - card.offsetWidth;
         }
     });
 

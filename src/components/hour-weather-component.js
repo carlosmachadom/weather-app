@@ -18,7 +18,8 @@ class HourWeatherComponent extends HTMLElement {
         return `
             <style>
                 :host {
-                    
+                    cursor: grab;
+                    user-select: none;
                 }
 
                 .rb {
@@ -35,8 +36,7 @@ class HourWeatherComponent extends HTMLElement {
                     padding: 1.2rem;
                     background-color: var(--gray);
                     text-align: center;
-                    cursor: grab;
-                    user-select: none;
+                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -72,7 +72,7 @@ class HourWeatherComponent extends HTMLElement {
             <div class="rb card">
                 <p class="rb card--hour">${this.dataset.hour}</p>
                 <img class="rb card--img" src="${this.dataset.icon}" title="${this.dataset.condition}" alt="${this.dataset.condition}" draggable="false"/>
-                <p class="rb card--temp">${this.dataset.temp}</p>
+                <p class="rb card--temp">${this.dataset.temp}°C</p>
             </div>
             ${this.getStyles()}
         `;

@@ -1,3 +1,5 @@
+import getInitialScroll from '@utils/get-initial-scroll';
+
 export default class HourWeatherView {
     renderHours(list) {
         const hourCardsWrapper = null || document.querySelector('.forecast-wrapper > ul.carousel');
@@ -27,6 +29,8 @@ export default class HourWeatherView {
 
                 hourCardsWrapper.appendChild(listItem);
             });
+
+            hourCardsWrapper.scrollLeft = getInitialScroll();
         }
     }
 }
