@@ -14,44 +14,40 @@ import HourWeatherView from "@views/hour-weather-view";
 import HourWeatherController from "@controllers/hour-weather-controller";
 
 /* Renderind day and location data */
-function insertDayLocationComponent(obj) {
+function insertDayLocationComponent({ weather, location }) {
     let dayLocationModel = new DayLocationModel();
     let dayLocationView = new DayLocationView();
     let dayLocationController = new DayLocationController({ model: dayLocationModel, view: dayLocationView });
 
-    let data = obj;
-
     dayLocationController.updateData({
-        degrees: data.degrees,
-        city: data.city,
-        country: data.country,
-        state: data.state,
-        stateImage: data.stateImage
+        degrees: weather.temp_c < 10 ? '0' + weather.temp_c + '°C' : weather.temp_c + '°C',
+        city: location.name,
+        country: location.country,
+        state: weather.condition.text,
+        stateImage: weather.condition.icon
     });
 
     dayLocationController.getCurrentData();
 }
 
 /* Rendering date weather status */
-function insertDayStatusComponent(obj) {
+function insertDayStatusComponent({ weather }) {
     let dayStatusModel = new DayStatusModel();
     let dayStatusView = new DayStatusView();
     let dayStatusController = new DayStatusController({ model: dayStatusModel, view: dayStatusView });
 
-    let data = obj;
-
     dayStatusController.updateData({
-        windStatus: data.windStatus,
-        humidity: data.humidity,
-        visibility: data.visibility,
-        airPressure: data.airPressure
+        windStatus: weather.wind_mph,
+        humidity: weather.humidity,
+        visibility: weather.vis_miles,
+        airPressure: weather.pressure_mb
     });
 
     dayStatusController.getCurrentData();
 }
 
 /* Rendering Hourly Condition */
-function insertHourStatusComponent(forecast) {
+function insertHourStatusComponent({ forecast }) {
     let hourStatusModel = new HourWeatherModel();
     let hourStatusView = new HourWeatherView();
     let hourStatusController = new HourWeatherController({ model: hourStatusModel, view: hourStatusView });

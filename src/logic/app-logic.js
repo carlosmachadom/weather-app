@@ -9,27 +9,8 @@ export default async function setWeatherData() {
     const { weather, location, date } = await getCurrentData({ latitude, longitude });
     const { forecast } = await getHourlyForecast({ latitude, longitude, date });
 
-    let temp = weather.temp_c < 10 ? '0' + weather.temp_c + '°C' : weather.temp_c + '°C';
-    let condition = weather.condition.text;
-    let timeZone = location.tz_id;
-
-    let dayLocationData = {
-        degrees: temp,
-        city: location.name,
-        country: location.country,
-        state: condition,
-        stateImage: weather.condition.icon
-    }
-
-    let dayStatusData = {
-        windStatus: weather.wind_mph,
-        humidity: weather.humidity,
-        visibility: weather.vis_miles,
-        airPressure: weather.pressure_mb
-    }
-
-    insertDateTimeComponents(timeZone);
-    insertDayLocationComponent(dayLocationData);
-    insertDayStatusComponent(dayStatusData);
-    insertHourStatusComponent(forecast);
+    insertDateTimeComponents({ location });
+    insertDayLocationComponent({ weather, location });
+    insertDayStatusComponent({ weather });
+    insertHourStatusComponent({ forecast });
 }

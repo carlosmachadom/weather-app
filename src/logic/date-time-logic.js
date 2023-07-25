@@ -50,8 +50,8 @@ function insertTime(tz) {
     timeController.getCurrentHour();
 }
 
-function insertDateTimeComponents(tz) {
-    let timezone = tz;
+function insertDateTimeComponents({ location }) {
+    let timezone = location.tz_id;
     insertDate(timezone);
     insertTime(timezone);
 }
