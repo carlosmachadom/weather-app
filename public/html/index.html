@@ -79,29 +79,48 @@
         </div>
 
         <section class="day-status">
-            <div class="day-location-layout">
+            <section class="menu-container hidden">
+                <form action="" class="form-city-selector">
+                    <label for="city" class="desired-location-container">
+                        Enter a City Name:
+                        <input id="city" class="desired-location-input" placeholder="E.g., New York, London, Tokyo"
+                            type="text" />
+                    </label>
+
+                    <button class="search-city-btn" type="button">Search</button>
+                    <div class="buttons-separator">
+                        or
+                    </div>
+                    <button class="your-location-btn" type="button">Select Current Location</button>
+                </form>
+            </section>
+
+            <section class="menu-button-container">
+                <button class="menu-button">Select Location</button>
+            </section>
+
+            <section class="day-location-layout">
                 <date-location-component class="initial-state" data-degrees="00°C" data-city="City"
                     data-country="Country" data-state="Condition" data-state-image="#"></date-location-component>
-            </div>
+            </section>
 
-            <div class="week-forecast-wrapper">
-
-            </div>
-
-            <form action="" class="form-city-selector">
-
-                <label for="city" class="desired-location-container">
-                    Enter a City Name:
-                    <input id="city" class="desired-location-input" placeholder="E.g., New York, London, Tokyo"
-                        type="text" />
-                </label>
-
-                <button class="search-city-btn" type="button">Search</button>
-                <div class="buttons-separator">
-                    or
-                </div>
-                <button class="your-location-btn" type="button">Select Current Location</button>
-            </form>
+            <section class="week-forecast-wrapper">
+                <h3 class="week-forecast-title">Next Days Forecast</h3>
+                <ul class="carousel">
+                    <li class="list-week-item initial-state">
+                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                    </li>
+                    <li class="list-week-item initial-state">
+                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                    </li>
+                    <li class="list-week-item initial-state">
+                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                    </li>
+                </ul>
+            </section>
         </section>
     </main>
 </body>

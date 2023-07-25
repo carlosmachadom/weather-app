@@ -9,7 +9,7 @@ export default async function getHourlyForecastData({ latitude, longitude, date 
     let query = `?q=${lat}%2C${long}&dt=${currentDate}`;
 
     let data = await fetchData({ endpoint, query });
-    let forecast = await data['forecast'].forecastday[0]['hour'];
+    let hourlyForecast = await data['forecast'].forecastday[0]['hour'];
 
-    return { forecast };
+    return { hourlyForecast };
 }

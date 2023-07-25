@@ -13,6 +13,11 @@ import HourWeatherModel from "@models/hour-weather-model";
 import HourWeatherView from "@views/hour-weather-view";
 import HourWeatherController from "@controllers/hour-weather-controller";
 
+/* Weekly Status elements*/
+import WeekWeatherModel from "@models/weekly-status-model";
+import WeekWeatherView from "@views/weekly-status-view";
+import WeekWeatherController from "@controllers/week-weather-controller";
+
 /* Renderind day and location data */
 function insertDayLocationComponent({ weather, location }) {
     let dayLocationModel = new DayLocationModel();
@@ -47,15 +52,32 @@ function insertDayStatusComponent({ weather }) {
 }
 
 /* Rendering Hourly Condition */
-function insertHourStatusComponent({ forecast }) {
+function insertHourStatusComponent({ hourlyForecast }) {
     let hourStatusModel = new HourWeatherModel();
     let hourStatusView = new HourWeatherView();
     let hourStatusController = new HourWeatherController({ model: hourStatusModel, view: hourStatusView });
 
-    let data = forecast;
+    let data = hourlyForecast;
 
     hourStatusController.updateHours(data);
     hourStatusController.getCurrentHour();
 }
 
-export { insertDayLocationComponent, insertDayStatusComponent, insertHourStatusComponent };
+/* Rendering Weekly Condition */
+function insertWeekStatusComponent({ weeklyForecast }) {
+    let weekStatusModel = new WeekWeatherModel();
+    let weekStatusView = new WeekWeatherView();
+    let weekStatusController = new WeekWeatherController({ model: weekStatusModel, view: weekStatusView });
+
+    let data = weeklyForecast;
+
+    weekStatusController.updateWeek(data);
+    weekStatusController.getCurrentWeek();
+}
+
+export {
+    insertDayLocationComponent,
+    insertDayStatusComponent,
+    insertHourStatusComponent,
+    insertWeekStatusComponent
+};

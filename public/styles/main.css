@@ -85,6 +85,8 @@ a {
     grid-template-rows: 1fr;
 }
 
+/* General Highlights  Components*/
+
 .highlights {
     padding: 2rem;
     width: 100%;
@@ -122,67 +124,7 @@ a {
     border-inline-end: 1px solid var(--white);
 }
 
-.day-status {
-    width: 100%;
-    padding: 4rem 2rem;
-    background-color: var(--gray);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.desired-location-container {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.desired-location-input {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    margin-block-start: 1rem;
-}
-
-.desired-location-input:focus {
-    outline: var(--black) solid 4px;
-}
-
-.search-city-btn,
-.your-location-btn {
-    width: 100%;
-    padding: 1.2rem;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    font-size: 1.6rem;
-    cursor: pointer;
-    font-weight: bold;
-    margin-block-start: 2rem;
-}
-
-.search-city-btn:hover,
-.your-location-btn:hover {
-    background-color: var(--white);
-    color: var(--black);
-}
-
-.buttons-separator {
-    margin-block-start: 2rem;
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-.form-city-selector {
-    width: 100%;
-}
-
-.day-location-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* Hourly Forecast Wrapper */
 
 .forecast-wrapper {
     display: flex;
@@ -230,4 +172,115 @@ a {
 
 .carousel>li.current-hour {
     border: var(--white) solid 4px;
+}
+
+/* Day Status Components */
+.day-status {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--gray);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+.menu-button-container {
+    width: 100%;
+}
+
+.menu-button {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu-button:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.menu-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 2rem;
+    background-color: var(--gray);
+    top: 0;
+    left: 0;
+}
+
+.form-city-selector .desired-location-container {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.desired-location-input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-block-start: 1rem;
+}
+
+.desired-location-input:focus {
+    outline: var(--black) solid 4px;
+}
+
+.search-city-btn,
+.your-location-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-block-start: 2rem;
+}
+
+.search-city-btn:hover,
+.your-location-btn:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.buttons-separator {
+    margin-block-start: 2rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.form-city-selector {
+    width: 100%;
+}
+
+.day-location-layout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.week-forecast-wrapper {
+    width: 100%;
+}
+
+.week-forecast-wrapper h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-block-end: 1rem;
+}
+
+/* Utils */
+.hidden {
+    display: none;
 }
