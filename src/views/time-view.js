@@ -22,6 +22,7 @@ export default class TimeView {
     }
 
     updateTime(tz) {
+        /* Cambiar por la llamada a la función que renderiza de cero el componente */
         let timezone = tz;
         setInterval(() => {
             const currenTime = getCurrentTime(timezone);

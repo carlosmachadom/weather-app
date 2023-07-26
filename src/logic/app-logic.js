@@ -1,4 +1,3 @@
-import getUserLocation from "@utils/get-location";
 import getCurrentData from "@utils/get-current-weather-data";
 import getHourlyForecast from '@utils/get-hourly-forecast-data';
 import getWeekDaysForecast from '@utils/get-week-days-forecast';
@@ -13,11 +12,10 @@ import {
 } from "@logic/day-status-weather-logic";
 
 
-export default async function setWeatherData() {
-    let { latitude, longitude } = await getUserLocation();
-    const { weather, location, date } = await getCurrentData({ latitude, longitude });
-    const { hourlyForecast } = await getHourlyForecast({ latitude, longitude, date });
-    const { weeklyForecast } = await getWeekDaysForecast({ latitude, longitude });
+export default async function setWeatherData({ latitude = null, longitude = null, city = null }) {
+    const { weather, location, date } = await getCurrentData({ latitude, longitude, city });
+    const { hourlyForecast } = await getHourlyForecast({ latitude, longitude, city, date });
+    const { weeklyForecast } = await getWeekDaysForecast({ latitude, longitude, city });
 
     insertDateTimeComponents({ location });
     insertDayLocationComponent({ weather, location });
