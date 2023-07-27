@@ -14,7 +14,7 @@ import {
 
 export default async function setWeatherData({ latitude = null, longitude = null, city = null }) {
     const { weather, location, date } = await getCurrentData({ latitude, longitude, city });
-    const { hourlyForecast } = await getHourlyForecast({ latitude, longitude, city, date });
+    const { hourlyForecast } = await getHourlyForecast({ latitude, longitude, city, date: date.split(' ')[0] });
     const { weeklyForecast } = await getWeekDaysForecast({ latitude, longitude, city });
 
     insertDateTimeComponents({ location });

@@ -1,14 +1,12 @@
 import { getCurrentTime } from "@utils/get-curren-time";
 
 export default class TimeView {
+    intervalId = null;
+
     renderTime({ hours, minutes, seconds, ds, tz }) {
-        let newTime = document.createElement('time-component');
-        newTime.classList.add('current');
-        newTime.dataset.hours = hours;
-        newTime.dataset.minutes = minutes;
-        newTime.dataset.seconds = seconds;
-        newTime.dataset.ds = ds;
-        newTime.dataset.tz = tz;
+        if (this.intervalId !== null) {
+            clearInterval(this.intervalId);
+        }
 
         const clockLayout = null || document.querySelector('.clock');
         const initialClock = null || document.querySelector('time-component.initial-state')
@@ -17,31 +15,41 @@ export default class TimeView {
         if (clockLayout) {
             if (initialClock) initialClock.remove();
             if (currentClock) currentClock.remove();
+
+            let newTime = document.createElement('time-component');
+            newTime.classList.add('current');
+            newTime.dataset.hours = hours;
+            newTime.dataset.minutes = minutes;
+            newTime.dataset.seconds = seconds;
+            newTime.dataset.ds = ds;
+            newTime.dataset.tz = tz;
+
             clockLayout.appendChild(newTime);
+
+            this.intervalId = setInterval(() => {
+                this.updateTime();
+            }, 1000);
         }
     }
 
-    updateTime(tz) {
-        /* Cambiar por la llamada a la función que renderiza de cero el componente */
-        let timezone = tz;
-        setInterval(() => {
-            const currenTime = getCurrentTime(timezone);
-            const time = document.querySelector('time-component');
+    updateTime() {
+        const time = document.querySelector('time-component');
 
-            if (time) {
-                time.dataset.hours = currenTime.hours;
-                time.dataset.minutes = currenTime.minutes;
-                time.dataset.seconds = currenTime.seconds;
-                time.dataset.ds = currenTime.dayState;
-            }
+        const currentTimeZone = time.getAttribute('data-tz');
+        const currentTime = getCurrentTime(currentTimeZone);
 
-            const component = null || document.querySelector('time-component').shadowRoot;
 
-            if (component) {
-                let timeText = null || component.childNodes[1].childNodes[1];
-                timeText.textContent = `${time.dataset.hours}:${time.dataset.minutes}:${time.dataset.seconds} ${time.dataset.ds}`;
-            }
+        if (time) {
+            time.dataset.hours = currentTime.hours;
+            time.dataset.minutes = currentTime.minutes;
+            time.dataset.seconds = currentTime.seconds;
+            time.dataset.ds = currentTime.dayState;
+        }
 
-        }, 1000);
+        let timeText = null || document.querySelector('time-component').shadowRoot.querySelector('.time--text');
+
+        if (timeText) {
+            timeText.innerHTML = `${time.dataset.hours}:${time.dataset.minutes}:${time.dataset.seconds} ${time.dataset.ds}`;
+        }
     }
 }

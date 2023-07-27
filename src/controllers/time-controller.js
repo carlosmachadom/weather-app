@@ -15,6 +15,5 @@ export default class TimeController {
         let ds = this.model.getDayState();
         let tz = this.model.getTimezone();
         this.view.renderTime({ hours, minutes, seconds, ds, tz });
-        this.view.updateTime(tz);
     }
 }
