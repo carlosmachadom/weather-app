@@ -14,11 +14,11 @@ export default class HourWeatherView {
                 const { time, condition, temp_c } = hourF;
                 const [_, hours] = time.split(' ');
                 const [hour] = hours.split(':');
-                const hourFormatTwelve = hour > 12 ? hour - 12 : hour;
+                const hourFormatTwelve = (hour === '00' || hour === 12) ? 12 : (hour > 12 ? hour - 12 : hour);
                 const hourToShow = hourFormatTwelve.toString().padStart(2, '0');
 
                 const hourCard = document.createElement('hour-weather-component');
-                hourCard.dataset.hour = hour > 12 ? `${hourToShow} PM` : `${hourToShow} AM`;
+                hourCard.dataset.hour = hour >= 12 ? `${hourToShow} PM` : `${hourToShow} AM`;
                 hourCard.dataset.icon = condition.icon;
                 hourCard.dataset.temp = temp_c;
                 hourCard.dataset.condition = condition.text;
