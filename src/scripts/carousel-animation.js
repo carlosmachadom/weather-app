@@ -16,13 +16,14 @@ function updateArrowVisibility() {
 
     // Oculta o muestra las flechas izquierda y derecha según su posición
     leftArrow.style.display = scrollLeft === 0 ? 'none' : 'initial';
-    rightArrow.style.display = scrollLeft + 1 === scrollWidth - clientWidth ? 'none' : 'initial';
+    rightArrow.style.display = (scrollLeft + 1 === scrollWidth - clientWidth) || (scrollLeft === scrollWidth - clientWidth) ? 'none' : 'initial';
 }
 
 // Función para desplazar el carusel en una dirección específica
 function moveCarousel(direction) {
     // Desplaza el carusel hacia la izquierda o derecha según la dirección proporcionada
-    carousel.scrollLeft += direction * cardWidth;
+    //carousel.scrollLeft += direction * cardWidth;
+    carousel.scrollLeft += direction * carousel.clientWidth;
 }
 
 // Evento para el inicio del arrastre (mousedown)

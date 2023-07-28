@@ -17,7 +17,6 @@ export default async function setWeatherData({ latitude = null, longitude = null
     let long = await longitude;
     let lat = await latitude;
     let c = await city;
-    console.log()
 
     const { weather, location, date } = await getCurrentData({ latitude: lat, longitude: long, city: c });
 

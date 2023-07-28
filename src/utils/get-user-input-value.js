@@ -12,7 +12,10 @@ export default async function getCityInputValue() {
         }
 
         const cityName = await realCity[0]?.['display_name'];
-        const city = await cityName?.split(',')[0];
-        return city;
+        const city = await cityName?.split(',')[0].toLowerCase();
+
+        if (city.includes(value)) {
+            return value;
+        }
     }
 } 
