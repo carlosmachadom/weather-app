@@ -1,4 +1,4 @@
-import fetchData from "@helpers/fetch-general-data";
+import fetchData from "@helpers/fetch-general-weather-data";
 
 export default async function getHourlyForecastData({ latitude = null, longitude = null, city = null, date }) {
     let lat = latitude;
@@ -13,11 +13,9 @@ export default async function getHourlyForecastData({ latitude = null, longitude
         query = `?q=${lat}%2C${long}&dt=${currentDate}`;
     } else if (long === null && lat === null && c !== null) {
         query = `?q=${c}&dt=${currentDate}`;
-    } else {
-        return;
     }
 
-    let data = await fetchData({ endpoint, query });
+    let { data } = await fetchData({ endpoint, query });
     let hourlyForecast = await data['forecast'].forecastday[0]['hour'];
 
     return { hourlyForecast };

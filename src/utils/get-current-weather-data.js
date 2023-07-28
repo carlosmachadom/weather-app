@@ -1,4 +1,5 @@
-import fetchData from "@helpers/fetch-general-data";
+import fetchData from "@helpers/fetch-general-weather-data";
+import { showTextError } from "@utils/show-hide-text-error";
 
 export default async function getCurrentData({ latitude = null, longitude = null, city = null }) {
     let lat = latitude;
@@ -8,19 +9,22 @@ export default async function getCurrentData({ latitude = null, longitude = null
     let endpoint = `/current.json`;
     let query;
 
-    if (long !== null && lat !== null && c === null) {
+    if (long !== null && lat !== null) {
         query = `?q=${lat}%2C${long}`;
-    } else if (long === null && lat === null && c !== null) {
+    } else if (c !== null) {
         query = `?q=${c}`;
-    } else {
-        return;
     }
 
-    let data = await fetchData({ endpoint, query });
+    let { data } = await fetchData({ endpoint, query });
 
-    let weather = await data['current'];
-    let location = await data['location'];
-    let date = await location.localtime;
+    if (data && data.error) {
+        showTextError();
+        return { weather: undefined, location: undefined, date: undefined };
+    }
+
+    let weather = await data?.['current'];
+    let location = await data?.['location'];
+    let date = await location?.localtime;
 
     return { weather, location, date };
 }

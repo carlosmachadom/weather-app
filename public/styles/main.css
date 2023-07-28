@@ -218,9 +218,11 @@ a {
     left: 0;
 }
 
-.form-city-selector .desired-location-container {
-    font-size: 2rem;
+.form-city-selector .desired-location-container p {
+    margin-block-start: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: red;
 }
 
 .desired-location-input {

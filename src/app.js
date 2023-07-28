@@ -1,31 +1,13 @@
 /* Logic */
-import setWeatherData from '@logic/app-logic';
+import setWeatherData from '@logic/insert-weather-data-logic';
 import getUserLocation from "@utils/get-location";
+import getCityInputValue from "@utils/get-user-input-value";
+import showHideMenu from "@utils/show-hide-menu";
+import { showTextError, hideTextError } from '@utils/show-hide-text-error';
 
 const menuButton = document.querySelector('.menu-button-container .menu-button');
-const menuContainer = document.querySelector('.menu-container');
 const weatherForm = document.querySelector('.form-city-selector');
-const errorText = document.querySelector('.input--error');
 
-
-function showMenu() {
-    if (menuContainer.classList.contains('hidden')) {
-        menuContainer.classList.remove('hidden');
-    }
-}
-
-function hideMenu() {
-    if (!menuContainer.classList.contains('hidden')) {
-        menuContainer.classList.add('hidden');
-    }
-}
-
-function getCityInputValue() {
-    const value = document.querySelector('.desired-location-input').value;
-    const cityRegex = /^[A-Za-z\s\-,'.()]+$/;
-
-    if (value !== "" && cityRegex.test(value)) return value;
-}
 
 async function handdleWeatherData(e) {
     if (e.target.className === 'your-location-btn') {
@@ -33,25 +15,23 @@ async function handdleWeatherData(e) {
         weatherForm.reset();
         let { latitude, longitude } = await getUserLocation();
         setWeatherData({ latitude, longitude });
-        hideMenu();
-
+        hideTextError();
     } else if (e.target.className === 'search-city-btn') {
         e.preventDefault();
-        let city = getCityInputValue();
+        let city = await getCityInputValue();
         if (city !== undefined) {
             setWeatherData({ city });
             weatherForm.reset();
-            if (!errorText.classList.contains('hidden')) errorText.classList.add('hidden');
-            hideMenu();
+            hideTextError();
         } else {
-            if (errorText.classList.contains('hidden')) errorText.classList.remove('hidden');
+            showTextError();
         }
     }
 }
 
 (async function App() {
     try {
-        menuButton.addEventListener('click', showMenu);
+        menuButton.addEventListener('click', showHideMenu);
         weatherForm.addEventListener('click', handdleWeatherData);
     } catch (err) {
         throw new Error(err);
