@@ -18,7 +18,6 @@ class WeekDayWeatherComponent extends HTMLElement {
         return `
             <style>
                 :host {
-                    user-select: none;
                 }
 
                 .rb {
@@ -33,6 +32,7 @@ class WeekDayWeatherComponent extends HTMLElement {
                     justify-content: space-between;
                     align-items: center;
                     background-color: var(--black);
+                    border-radius: 8px;
                 }
 
                 .card:not(:last-child) {
@@ -55,9 +55,14 @@ class WeekDayWeatherComponent extends HTMLElement {
                     padding: 1rem;
                 }
 
+                .card--day {
+                    margin-block-end: .5rem;
+                }
+
                 .card--condition,
                 .card--day {
                     font-size: 1.4rem;
+                    font-weight: bold;
                 }
 
                 .temp-container {
@@ -67,8 +72,13 @@ class WeekDayWeatherComponent extends HTMLElement {
                 }
 
                 .card--temp {
-                    font-size: 1.2rem;
-                }                
+                    font-size: 1.4rem;
+                    font-weight:bold;
+                }     
+                
+                .card--temp:first-child {
+                    margin-block-end: .5rem;
+                }
             </style>
         `;
     }

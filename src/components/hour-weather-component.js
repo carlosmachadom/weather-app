@@ -36,6 +36,7 @@ class HourWeatherComponent extends HTMLElement {
                     padding: 1.2rem;
                     background-color: var(--gray);
                     text-align: center;
+                    border-radius: 8px;
                     
                     display: flex;
                     flex-direction: column;

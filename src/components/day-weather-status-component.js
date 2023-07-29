@@ -28,7 +28,7 @@ class DayWeatherStatus extends HTMLElement {
                 }
 
                 .title-container {
-                    margin-block-start: 2rem;
+                    margin-block-start: 0;
                     width: 100%;
                 }
 
@@ -49,8 +49,8 @@ class DayWeatherStatus extends HTMLElement {
                 .status-card {
                     padding: 2.6rem 2rem;
                     background-color: var(--gray);
-                    width: 100%;
-                    max-width: 320px;
+                    flex-grow: 2;
+                    border-radius: 8px;
                 }
 
                 .card--title {

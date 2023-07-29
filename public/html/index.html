@@ -9,30 +9,31 @@
 </head>
 
 <body>
+    <header class="highlights-header">
+        <section class="header--weather-state">
+            <h1 class="header__weather-title">Weather App</h1>
+        </section>
+
+        <section class="header--day-time">
+            <div class="date-layout">
+                <div class="date">
+                    <date-component class="initial-state" data-day="dd" data-month="mm" data-year="yyyy">
+                    </date-component>
+                </div>
+            </div>
+
+            <div class="clock-layout">
+                <div class="clock">
+                    <time-component class="initial-state" data-hours="00" data-minutes="00" data-seconds="00" data-ds=""
+                        data-tz=""></time-component>
+                </div>
+            </div>
+        </section>
+    </header>
+
     <main class="app">
+
         <div class="highlights">
-            <header class="highlights-header">
-                <section class="header--weather-state">
-                    <h1 class="header__weather-title">Weather App</h1>
-                </section>
-
-                <section class="header--day-time">
-                    <div class="date-layout">
-                        <div class="date">
-                            <date-component class="initial-state" data-day="dd" data-month="mm" data-year="yyyy">
-                            </date-component>
-                        </div>
-                    </div>
-
-                    <div class="clock-layout">
-                        <div class="clock">
-                            <time-component class="initial-state" data-hours="00" data-minutes="00" data-seconds="00"
-                                data-ds="" data-tz=""></time-component>
-                        </div>
-                    </div>
-                </section>
-            </header>
-
             <section class="highlights--day-status">
                 <div class="day-status-layout">
                     <day-weather-status-component class="initial-state" data-wind-status="00" data-humidity="00"
@@ -82,7 +83,7 @@
             <section class="menu-container hidden">
                 <form action="" class="form-city-selector">
                     <label for="city" class="desired-location-container">
-                        Enter a City Name:
+                        <p class="input-label-text">Enter a City Name:</p>
                         <input id="city" class="desired-location-input" placeholder="E.g., New York, London, Tokyo"
                             type="text" />
                         <p class="input--error hidden">Please enter a valid city name</p>
@@ -96,32 +97,34 @@
                 </form>
             </section>
 
-            <section class="menu-button-container">
-                <button class="menu-button">Select Location</button>
-            </section>
+            <div class="day-status-container">
+                <section class="menu-button-container">
+                    <button class="menu-button">Select Location</button>
+                </section>
 
-            <section class="day-location-layout">
-                <date-location-component class="initial-state" data-degrees="00°C" data-city="City"
-                    data-country="Country" data-state="Condition" data-state-image="#"></date-location-component>
-            </section>
+                <section class="day-location-layout">
+                    <date-location-component class="initial-state" data-degrees="00°C" data-city="City"
+                        data-country="Country" data-state="Condition" data-state-image="#"></date-location-component>
+                </section>
 
-            <section class="week-forecast-wrapper">
-                <h3 class="week-forecast-title">Next Days Forecast</h3>
-                <ul class="carousel">
-                    <li class="list-week-item initial-state">
-                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
-                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
-                    </li>
-                    <li class="list-week-item initial-state">
-                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
-                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
-                    </li>
-                    <li class="list-week-item initial-state">
-                        <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
-                            data-min-temp="00" data-max-temp="00"></week-day-weather-component>
-                    </li>
-                </ul>
-            </section>
+                <section class="week-forecast-wrapper">
+                    <h3 class="week-forecast-title">Next Days Forecast</h3>
+                    <ul class="carousel">
+                        <li class="list-week-item initial-state">
+                            <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                                data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                        </li>
+                        <li class="list-week-item initial-state">
+                            <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                                data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                        </li>
+                        <li class="list-week-item initial-state">
+                            <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"
+                                data-min-temp="00" data-max-temp="00"></week-day-weather-component>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </section>
     </main>
 </body>

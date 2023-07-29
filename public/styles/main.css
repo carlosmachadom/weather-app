@@ -58,11 +58,19 @@ html {
 
 body {
     width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     min-height: 100svh;
-    padding: 0 2.4rem;
-    display: grid;
-    place-items: center;
     background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    /* min-height: 100svh;
+    padding: 0 2.4rem;
+     */
 }
 
 ul>li {
@@ -73,44 +81,27 @@ a {
     text-decoration: none;
 }
 
-.app {
-    width: clamp(300px, 100%, 1440px);
-    min-height: 80svh;
-    max-height: 1023px;
-
-    border: 4px var(--gray) solid;
-
-    display: grid;
-    grid-template-columns: 1fr 30%;
-    grid-template-rows: 1fr;
-}
-
-/* General Highlights  Components*/
-
-.highlights {
-    padding: 2rem;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
+/* General app styles */
 .highlights-header {
-    padding: 0;
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 2rem;
+    padding: 2rem 0 0 0;
 }
 
-.header__weather-title {
+.header--weather-state {
+    width: 100%;
+    text-align: center;
+}
+
+.header--weather-state .header__weather-title {
     font-size: 4rem;
     color: var(--white);
     font-weight: bold;
-}
-
-.highlights .highlights-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .header--day-time {
@@ -122,6 +113,38 @@ a {
     margin-inline-end: 1rem;
     padding-inline-end: 1rem;
     border-inline-end: 1px solid var(--white);
+}
+
+.app {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1140px;
+
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* General Highlights */
+
+.highlights {
+    padding: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+/* Day Status Section */
+.day-status-layout {
+    width: 100%;
+    display: grid;
+    place-items: center;
 }
 
 /* Hourly Forecast Wrapper */
@@ -172,24 +195,33 @@ a {
 
 .carousel>li.current-hour {
     border: var(--white) solid 4px;
+    border-radius: 8px;
 }
 
 /* Day Status Components */
 .day-status {
     width: 100%;
-    padding: 2rem;
+    max-width: 700px;
+    height: fit-content;
     background-color: var(--gray);
+    border-radius: 20px 20px 0 0;
+}
+
+.day-status-container {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    padding-block-end: 4rem;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    position: relative;
 }
 
 .menu-button-container {
     width: 100%;
+    margin-block-end: 2rem;
 }
 
 .menu-button {
@@ -201,6 +233,7 @@ a {
     font-size: 1.6rem;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 8px;
 }
 
 .menu-button:hover {
@@ -211,14 +244,18 @@ a {
 .menu-container {
     width: 100%;
     height: 100%;
-    position: absolute;
     padding: 2rem;
     background-color: var(--gray);
-    top: 0;
-    left: 0;
+    border-radius: 20px 20px 0 0;
 }
 
-.form-city-selector .desired-location-container p {
+.form-city-selector .desired-location-container p.input-label-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.form-city-selector .desired-location-container p.input--error {
     margin-block-start: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
@@ -247,6 +284,7 @@ a {
     cursor: pointer;
     font-weight: bold;
     margin-block-start: 2rem;
+    border-radius: 8px;
 }
 
 .search-city-btn:hover,
@@ -273,6 +311,7 @@ a {
 }
 
 .week-forecast-wrapper {
+    display: none;
     width: 100%;
 }
 
@@ -285,4 +324,36 @@ a {
 /* Utils */
 .hidden {
     display: none;
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1130px) {
+    .app {
+        border: 4px var(--gray) solid;
+        border-radius: 30px;
+    }
+
+    .day-status {
+        max-width: 420px;
+        height: inherit;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .day-status-container {
+        padding-block-end: 2rem;
+    }
+
+    .menu-container {
+        border-radius: 0 20px 20px 0;
+    }
+
+    .week-forecast-wrapper {
+        margin-block-start: 2rem;
+        display: block;
+    }
 }
