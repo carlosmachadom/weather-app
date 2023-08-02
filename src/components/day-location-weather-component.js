@@ -47,8 +47,10 @@ class DayLocation extends HTMLElement {
                 }
 
                 .status--img img{
-                    width: 160px;
+                    width: 100%;
+                    max-width: 160px;
                     object-fit: contain;
+                    object-position: center;
                 }
 
                 .status--degrees {
@@ -60,6 +62,37 @@ class DayLocation extends HTMLElement {
                     text-align: center;
                     font-size: 1.6rem;
                     padding-block-start: 1rem;
+                }
+
+                @media (max-width: 598px) {
+                    .general-status {
+                        max-width: 360px;
+                        margin: 0 auto;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: 1fr 1fr 1fr;
+                        place-items: center;
+                    }
+
+                    .status--title {
+                        grid-column: 1 / 3;
+                        grid-row: 1 / 2;
+                    }
+
+                    .status--img {
+                        grid-column: 1 / 2;
+                        grid-row: 2 / 4;
+                    }
+
+                    .status--degrees {
+                        grid-column: 2 / 3;
+                        grid-row: 2 / 3;
+                    }
+
+                    .status-location {
+                        grid-column: 2 / 3;
+                        grid-row: 3 / 4;
+                    }
                 }
             </style>
         `;

@@ -96,6 +96,7 @@ a {
 .header--weather-state {
     width: 100%;
     text-align: center;
+    margin-block-end: 1rem;
 }
 
 .header--weather-state .header__weather-title {
@@ -355,5 +356,15 @@ a {
     .week-forecast-wrapper {
         margin-block-start: 2rem;
         display: block;
+    }
+}
+
+@media (max-width: 598px) {
+    .day-status-container {
+        padding: 2rem;
+    }
+
+    .day-status-layout {
+        margin-block-end: 2rem;
     }
 }
