@@ -32,7 +32,7 @@ class DateComponent extends HTMLElement {
                     padding: 0;
                     font-size: 1.6rem;
                     font-weight: 400;
-                    color: var(--white);
+                    color: var(--font-color);
                     font-weight: bold;
                 }
             </style>

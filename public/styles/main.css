@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     font-display: swap;
     font-family: 'Manrope';
@@ -22,28 +23,27 @@
     src: url('@fonts/Manrope-Medium.ttf') format('ttf');
 }
 
-@font-face {
-    font-display: swap;
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 600;
-    src: url('@fonts/Manrope-SemiBold.ttf') format('ttf');
-}
-
-@font-face {
-    font-display: swap;
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 800;
-    src: url('@fonts/Manrope-ExtraBold.ttf') format('ttf');
-}
-
+/* Variables theme */
 :root {
-    --black: #100E1D;
-    --gray: #1E213A;
-    --white: #f3f4fa;
+    --bg-color: #000D38;
+    --bg-light: #11235d;
+    --font-dark: #000D38;
+    --font-color: #f3f4fa;
+    --btn-color: #F0B20C;
+    --btn-color-dark: #000D38;
+    --btn-color-transparent: transparent;
+    --btn-color-hover: #A37700;
+    --btn-color-hover-dark: #11235d;
+    --error-text-color: #f53356;
+    --border-color: #F0B20C;
+
+    --arrow-left: url('@images/angle-circle-left-dark-mode.png');
+    --arrow-right: url('@images/angle-circle-right-dark-mode.png');
+    --close-menu-icon: url('@images/close-menu-icon-dark-mode.png');
+    --location--icon: url('@images/location-icon.png');
 }
 
+/* Rebooting general styles */
 * {
     margin: 0;
     padding: 0;
@@ -53,7 +53,7 @@
 html {
     font-size: 62.5%;
     font-family: 'Manrope', sans-serif;
-    color: var(--white);
+    color: var(--font-color);
 }
 
 body {
@@ -61,16 +61,11 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
     min-height: 100svh;
-    background-color: var(--black);
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
-    /* min-height: 100svh;
-    padding: 0 2.4rem;
-     */
 }
 
 ul>li {
@@ -81,7 +76,7 @@ a {
     text-decoration: none;
 }
 
-/* General app styles */
+/* Header */
 .highlights-header {
     width: 100%;
     min-width: 300px;
@@ -101,7 +96,7 @@ a {
 
 .header--weather-state .header__weather-title {
     font-size: 4rem;
-    color: var(--white);
+    color: var(--font-color);
     font-weight: bold;
 }
 
@@ -113,9 +108,10 @@ a {
 .header--day-time .date-layout {
     margin-inline-end: 1rem;
     padding-inline-end: 1rem;
-    border-inline-end: 1px solid var(--white);
+    border-inline-end: 1px solid var(--font-color);
 }
 
+/* General app layout */
 .app {
     width: 100%;
     min-width: 300px;
@@ -127,8 +123,7 @@ a {
     align-items: stretch;
 }
 
-/* General Highlights */
-
+/* General Highlights section */
 .highlights {
     padding: 2rem;
     width: 100%;
@@ -139,8 +134,6 @@ a {
     justify-content: space-around;
 }
 
-
-
 /* Day Status Section */
 .day-status-layout {
     width: 100%;
@@ -149,32 +142,11 @@ a {
 }
 
 /* Hourly Forecast Wrapper */
-
 .forecast-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-.forecast-wrapper .arrow {
-    border-radius: 50%;
-    padding: 1rem;
-    border: none;
-    background-color: var(--white);
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-    display: none;
-}
-
-.forecast-wrapper .arrow.left {
-    left: -10px;
-}
-
-.forecast-wrapper .arrow.right {
-    right: -10px;
 }
 
 .forecast-wrapper .carousel {
@@ -195,17 +167,55 @@ a {
 }
 
 .carousel>li.current-hour {
-    border: var(--white) solid 4px;
+    border: var(--border-color) solid 4px;
     border-radius: 8px;
+}
+
+/* Left and right arrow */
+.forecast-wrapper .arrow {
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    background-color: var(--bg-color);
+}
+
+.forecast-wrapper .arrow span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.forecast-wrapper .arrow.left {
+    left: -10px;
+}
+
+.forecast-wrapper .arrow.left span {
+    background-image: var(--arrow-left);
+}
+
+.forecast-wrapper .arrow.right {
+    right: -10px;
+}
+
+.forecast-wrapper .arrow.right span {
+    background-image: var(--arrow-right);
 }
 
 /* Day Status Components */
 .day-status {
     width: 100%;
-    max-width: 700px;
+    max-width: 660px;
     height: fit-content;
-    background-color: var(--gray);
-    border-radius: 20px 20px 0 0;
+    background-color: var(--bg-light);
+    border-radius: 20px;
+    margin: 0 2rem;
 }
 
 .day-status-container {
@@ -220,6 +230,7 @@ a {
     align-items: center;
 }
 
+/* Menu trigger button */
 .menu-button-container {
     width: 100%;
     margin-block-end: 2rem;
@@ -228,82 +239,142 @@ a {
 .menu-button {
     width: 100%;
     padding: 1.2rem;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--btn-color);
+    color: var(--font-dark);
     border: none;
-    font-size: 1.6rem;
+    font-size: 2rem;
     cursor: pointer;
     font-weight: bold;
     border-radius: 8px;
 }
 
 .menu-button:hover {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--btn-color-hover);
 }
 
+/* Menu general */
 .menu-container {
     width: 100%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--gray);
-    border-radius: 20px 20px 0 0;
+    background-color: var(--bg-light);
+    border-radius: 20px;
+}
+
+.menu-close-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-close-button button {
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-color);
+    cursor: pointer;
+}
+
+.menu-close-button button span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: var(--close-menu-icon);
+}
+
+.menu-close-button button span:hover {
+    background-color: #A37700;
 }
 
 .form-city-selector .desired-location-container p.input-label-text {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: var(--white);
+    color: var(--font-color);
 }
 
 .form-city-selector .desired-location-container p.input--error {
     margin-block-start: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
-    color: red;
+    color: var(--error-text-color);
 }
 
 .desired-location-input {
     display: block;
     width: 100%;
-    padding: 1rem;
+    padding: 1.4rem;
+    font-size: 1.8rem;
     margin-block-start: 1rem;
+    border-radius: 8px;
+    border: none;
 }
 
 .desired-location-input:focus {
-    outline: var(--black) solid 4px;
+    outline: var(--border-color) solid 4px;
 }
 
 .search-city-btn,
 .your-location-btn {
     width: 100%;
     padding: 1.2rem;
-    background-color: var(--black);
-    color: var(--white);
     border: none;
-    font-size: 1.6rem;
+    font-size: 2rem;
     cursor: pointer;
     font-weight: bold;
     margin-block-start: 2rem;
     border-radius: 8px;
 }
 
-.search-city-btn:hover,
+
+.search-city-btn {
+    background-color: var(--btn-color);
+    color: var(--font-dark);
+}
+
+.your-location-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--btn-color-transparent);
+    border: solid 4px var(--border-color);
+    color: var(--font-color);
+}
+
+.search-city-btn:hover {
+    background-color: var(--btn-color-hover);
+}
+
 .your-location-btn:hover {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--btn-color-dark);
 }
 
 .buttons-separator {
     margin-block-start: 2rem;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .form-city-selector {
     width: 100%;
 }
 
+.button--icon {
+    display: inline-block;
+    width: 100%;
+    max-width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: var(--location--icon);
+    margin-inline-end: 1rem;
+}
+
+/* Day location component layout */
 .day-location-layout {
     width: 100%;
     display: flex;
@@ -311,6 +382,8 @@ a {
     align-items: center;
 }
 
+
+/* Week Status component layout */
 .week-forecast-wrapper {
     display: none;
     width: 100%;
@@ -327,26 +400,69 @@ a {
     display: none;
 }
 
-@media (min-width: 576px) {}
+/* Media queries Max width */
+@media (max-width: 598px) {
+    .day-status-container {
+        padding: 2rem;
+    }
 
-@media (min-width: 768px) {}
+    .day-status-layout {
+        margin-block-end: 2rem;
+    }
+}
 
-@media (min-width: 992px) {}
+/* Media queries Min width */
+@media screen and (min-width: 598px) and (max-width: 1129px) {
+    .day-status-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .day-status-container.hidden {
+        display: none;
+    }
+
+    .menu-button-container {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .day-location-layout {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3
+    }
+
+    .week-forecast-wrapper {
+        display: block;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: end;
+    }
+}
 
 @media (min-width: 1130px) {
+    body {
+        padding: 0 2rem;
+    }
+
     .app {
-        border: 4px var(--gray) solid;
+        border: 4px var(--bg-light) solid;
         border-radius: 30px;
     }
 
     .day-status {
+        width: 35%;
+        min-width: 300px;
         max-width: 420px;
         height: inherit;
         border-radius: 0 20px 20px 0;
+        margin: 0;
     }
 
     .day-status-container {
         padding-block-end: 2rem;
+        max-width: none;
     }
 
     .menu-container {
@@ -356,15 +472,5 @@ a {
     .week-forecast-wrapper {
         margin-block-start: 2rem;
         display: block;
-    }
-}
-
-@media (max-width: 598px) {
-    .day-status-container {
-        padding: 2rem;
-    }
-
-    .day-status-layout {
-        margin-block-end: 2rem;
     }
 }

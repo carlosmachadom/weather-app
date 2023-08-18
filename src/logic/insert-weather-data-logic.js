@@ -13,7 +13,11 @@ import {
     insertWeekStatusComponent
 } from "@logic/day-status-weather-logic";
 
-export default async function setWeatherData({ latitude = null, longitude = null, city = null }) {
+import getUserLocation from "@utils/get-location";
+import getCityInputValue from "@utils/get-user-input-value";
+import { showTextError, hideTextError } from '@utils/show-hide-text-error';
+
+async function setWeatherData({ latitude = null, longitude = null, city = null }) {
     let long = await longitude;
     let lat = await latitude;
     let c = await city;
@@ -32,6 +36,28 @@ export default async function setWeatherData({ latitude = null, longitude = null
         showHideMenu();
     } else {
         return;
+    }
+}
+
+const weatherForm = document.querySelector('.form-city-selector');
+
+export default async function handdleWeatherData(e) {
+    if (e.target.className === 'your-location-btn') {
+        e.preventDefault();
+        weatherForm.reset();
+        let { latitude, longitude } = await getUserLocation();
+        setWeatherData({ latitude, longitude });
+        hideTextError();
+    } else if (e.target.className === 'search-city-btn') {
+        e.preventDefault();
+        let city = await getCityInputValue();
+        if (city !== undefined) {
+            setWeatherData({ city });
+            weatherForm.reset();
+            hideTextError();
+        } else {
+            showTextError();
+        }
     }
 }
 

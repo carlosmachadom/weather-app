@@ -48,7 +48,7 @@ class DayWeatherStatus extends HTMLElement {
 
                 .status-card {
                     padding: 2.6rem 2rem;
-                    background-color: var(--gray);
+                    background-color: var(--bg-light);
                     flex-grow: 2;
                     border-radius: 8px;
                 }
@@ -79,7 +79,7 @@ class DayWeatherStatus extends HTMLElement {
                     }
                     
                     .day-highlights-container {
-                        background-color: var(--gray);
+                        background-color: var(--bg-light);
                         padding: 2rem;
                         border-radius: 20px;
                     }
@@ -95,13 +95,22 @@ class DayWeatherStatus extends HTMLElement {
                     .status-card {
                         width: 45%;
                         padding: 0;
-                        background-color: none;
                         border-radius: 0;
                         margin-block-end: 1rem;
                     }
 
+                    .wind-status-icon {
+                        display: inline-block;
+                        width: 22px;
+                        height: 22px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-image: var(--wind-status-icon-dark-mode);
+                    }
+
                     .card--title {
-                        font-size: 1.4rem;
+                        font-size: 1.6rem;
                         text-align: left;
                         margin-block-end: .5rem;
                     }
@@ -118,6 +127,23 @@ class DayWeatherStatus extends HTMLElement {
                         font-size: 1.4rem;
                         font-weight: 400; 
                     }
+
+                    @media screen and (min-width: 370px) and (max-width: 597px) {
+                        .card--title {
+                            font-size: 2rem;
+                        }
+
+                        .card--number {
+                            font-size: 1.6rem;
+                            font-weight: bold;
+                            line-height: 1.6rem;
+                        }
+
+                        .meassure-text {
+                            font-size: 1.4rem;
+                            font-weight: 400; 
+                        }
+                    }
                 }
             </style>
         `;
@@ -131,9 +157,9 @@ class DayWeatherStatus extends HTMLElement {
                     <h3 class="rb">Today's Highlights</h3>
                 </div>
                 <div class="rb status-wrapper">
-                    <article class="rb status-card">
+                    <article class="rb status-card">                        
                         <h3 class="rb card--title">Wind Status</h3>
-                        <p class="rb card--number">${this.dataset.windStatus}<span class="meassure-text">mps</span></p>
+                        <p class="rb card--number">${this.dataset.windStatus}<span class="meassure-text">mps</span></p>                                                
                     </article>
 
                     <article class="rb status-card">

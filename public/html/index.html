@@ -44,7 +44,7 @@
             <section class="highlights--day-forecast">
                 <div class="forecast-wrapper">
                     <button id="left" class="arrow left">
-                        <span>A</span>
+                        <span></span>
                     </button>
                     <ul class="carousel">
                         <li class="list-hour-item initial-state">
@@ -73,7 +73,7 @@
                         </li>
                     </ul>
                     <button id="right" class="arrow right">
-                        <span>A</span>
+                        <span></span>
                     </button>
                 </div>
             </section>
@@ -81,6 +81,11 @@
 
         <section class="day-status">
             <section class="menu-container hidden">
+                <div class="menu-close-button">
+                    <button class="close-button">
+                        <span></span>
+                    </button>
+                </div>
                 <form action="" class="form-city-selector">
                     <label for="city" class="desired-location-container">
                         <p class="input-label-text">Enter a City Name:</p>
@@ -93,7 +98,8 @@
                     <div class="buttons-separator">
                         or
                     </div>
-                    <button class="your-location-btn" type="button">Select Current Location</button>
+                    <button class="your-location-btn" type="button"><span class="button--icon"></span>Select Current
+                        Location</button>
                 </form>
             </section>
 
@@ -104,11 +110,12 @@
 
                 <section class="day-location-layout">
                     <date-location-component class="initial-state" data-degrees="00°C" data-city="City"
-                        data-country="Country" data-state="Condition" data-state-image="#"></date-location-component>
+                        data-country="Country" data-state="Condition"
+                        data-state-image="http://cdn.weatherapi.com/weather/64x64/night/122.png"></date-location-component>
                 </section>
 
                 <section class="week-forecast-wrapper">
-                    <h3 class="week-forecast-title">Next Days Forecast</h3>
+                    <h3 class="week-forecast-title">Week Forecast</h3>
                     <ul class="carousel">
                         <li class="list-week-item initial-state">
                             <week-day-weather-component data-icon="#" data-day="dd/mm/aaaa" data-condition="Condition"

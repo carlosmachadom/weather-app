@@ -31,7 +31,7 @@ class WeekDayWeatherComponent extends HTMLElement {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    background-color: var(--black);
+                    background-color: var(--bg-color);
                     border-radius: 8px;
                 }
 
@@ -48,11 +48,13 @@ class WeekDayWeatherComponent extends HTMLElement {
                     width: 100%;
                     min-width: 24px;
                     max-width: 34px;
+                    margin: 0 auto;
+                    display: block;
                 }
 
                 .data-container {
                     width: 50%;
-                    padding: 1rem;
+                    padding: 1rem 0;
                 }
 
                 .card--day {

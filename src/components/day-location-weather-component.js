@@ -35,9 +35,10 @@ class DayLocation extends HTMLElement {
                     font-size: 3rem;
                     word-break: break-word;
                     line-height: 3.2rem;
-                    color: var(--white);
+                    color: var(--font-color);
                     font-weight: bold;
                     text-align: center;
+                    margin-block-end: 1rem;
                 }
 
                 .status--img {
@@ -61,37 +62,37 @@ class DayLocation extends HTMLElement {
                 .status-location {
                     text-align: center;
                     font-size: 1.6rem;
-                    padding-block-start: 1rem;
                 }
 
                 @media (max-width: 598px) {
                     .general-status {
                         max-width: 360px;
+                        max-height: 200px;
                         margin: 0 auto;
                         display: grid;
                         grid-template-columns: 1fr 1fr;
-                        grid-template-rows: 1fr 1fr 1fr;
+                        grid-template-rows: auto 1fr;
                         place-items: center;
-                    }
+                    }                 
 
                     .status--title {
                         grid-column: 1 / 3;
                         grid-row: 1 / 2;
+                        margin-block-end: 0;
                     }
 
                     .status--img {
                         grid-column: 1 / 2;
-                        grid-row: 2 / 4;
-                    }
-
-                    .status--degrees {
-                        grid-column: 2 / 3;
                         grid-row: 2 / 3;
                     }
 
-                    .status-location {
+                    .status--img img {
+                        max-height: 130px;
+                    }
+
+                    .data-container {
                         grid-column: 2 / 3;
-                        grid-row: 3 / 4;
+                        grid-row: 2 / 3;
                     }
                 }
             </style>
@@ -105,13 +106,15 @@ class DayLocation extends HTMLElement {
             <article class="rb general-status">
                 <h2 class="rb status--title">${this.dataset.state}</h2>
                 <figure class="rb status--img">
-                    <img class="rb" src="${this.dataset.stateImage}" title="${this.dataset.state}" alt=""/>
+                    <img class="rb" src="${this.dataset.stateImage}" title="${this.dataset.state}" alt="${this.dataset.state}"/>
                 </figure>
-                <h4 class="rb status--degrees">${this.dataset.degrees}</h4>
-                <p class="rb status-location">
-                    <span class="rb status--city">${this.dataset.city}</span> /
-                    <span class="rb status--country">${this.dataset.country}</span>
-                </p>
+                <div class="data-container">
+                    <h4 class="rb status--degrees">${this.dataset.degrees}</h4>
+                    <p class="rb status-location">
+                        <span class="rb status--city">${this.dataset.city}</span> /
+                        <span class="rb status--country">${this.dataset.country}</span>
+                    </p>
+                </div>                
             </article>
         
             ${this.getStyles()}

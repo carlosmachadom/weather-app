@@ -74,7 +74,7 @@ module.exports = {
             filename: 'styles/[name].[contenthash].css'
         }),
         new DotEnv(),
-        // new FaviconsWebpackPlugin(''),
+        new FaviconsWebpackPlugin('./public/assets/images/Favicon.png'),
         new BundleAnalyzerPlugin()
     ],
     devServer: {

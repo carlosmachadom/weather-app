@@ -34,7 +34,7 @@ class HourWeatherComponent extends HTMLElement {
                     max-width: 120px; 
                     min-height: 100px;
                     padding: 1.2rem;
-                    background-color: var(--gray);
+                    background-color: var(--bg-light);
                     text-align: center;
                     border-radius: 8px;
                     
@@ -47,7 +47,7 @@ class HourWeatherComponent extends HTMLElement {
                 .card--hour {
                     font-size: 1.6rem;
                     font-weight: 400;
-                    color: var(--white);
+                    color: var(--font-color);
                     font-weight: bold;
                 }
 
@@ -59,7 +59,7 @@ class HourWeatherComponent extends HTMLElement {
                 .card--temp {
                     font-size: 1.6rem;
                     font-weight: 400;
-                    color: var(--white);
+                    color: var(--font-color);
                     font-weight: bold;
                 }
             </style>
