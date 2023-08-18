@@ -113,6 +113,7 @@ a {
 
 /* General app layout */
 .app {
+    position: relative;
     width: 100%;
     min-width: 300px;
     max-width: 1140px;
@@ -393,6 +394,58 @@ a {
     font-size: 2rem;
     font-weight: bold;
     margin-block-end: 1rem;
+}
+
+/* Loading modal */
+.loading-modal {
+    position: absolute;
+    display: block;
+    width: fit-content;
+    padding: 1rem;
+    background-color: var(--bg-light);
+    color: var(--font-color);
+    font-size: 1.2rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 4px 4px;
+}
+
+.loader {
+    display: flex;
+    gap: 2px;
+    align-items: flex-start;
+    margin-block-end: .5rem;
+}
+
+.loader div {
+    width: 6px;
+    height: 6px;
+    background-color: #FFF;
+    border-radius: 50%;
+    animation: salto 1s alternate infinite;
+}
+
+.loader div:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+.loader div:nth-child(3) {
+    animation-delay: 0.40s;
+}
+
+.loader div:nth-child(4) {
+    animation-delay: 0.60s;
+}
+
+@keyframes salto {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 /* Utils */

@@ -21,7 +21,15 @@ export default class TimeView {
             newTime.dataset.hours = hours;
             newTime.dataset.minutes = minutes;
             newTime.dataset.seconds = seconds;
-            newTime.dataset.ds = ds;
+
+            const amPmRegex = /^(AM|PM)$/i;
+
+            if (!amPmRegex.test(ds)) {
+                newTime.dataset.ds = this.testFormatInitial({ ds });
+            } else {
+                newTime.dataset.ds = ds;
+            }
+
             newTime.dataset.tz = tz;
 
             clockLayout.appendChild(newTime);
@@ -43,13 +51,37 @@ export default class TimeView {
             time.dataset.hours = currentTime.hours;
             time.dataset.minutes = currentTime.minutes;
             time.dataset.seconds = currentTime.seconds;
-            time.dataset.ds = currentTime.dayState;
+
+            const amPmRegex = /^(AM|PM)$/i;
+
+            if (!amPmRegex.test(currentTime.dayState)) {
+                time.dataset.ds = this.testFormatInitial({ ds: currentTime.dayState })
+            } else {
+                time.dataset.ds = currentTime.dayState;
+            }
         }
+
 
         let timeText = null || document.querySelector('time-component').shadowRoot.querySelector('.time--text');
 
         if (timeText) {
             timeText.innerHTML = `${time.dataset.hours}:${time.dataset.minutes}:${time.dataset.seconds} ${time.dataset.ds}`;
         }
+    }
+
+    testFormatInitial({ ds }) {
+        let state = null
+        const amRegex = /a\.\s*m\./gi;
+        const pmRegex = /p\.\s*m\./gi;
+
+        if (amRegex.test(ds)) {
+            ds = 'AM';
+        } else if (pmRegex.test(ds)) {
+            ds = 'PM';
+        }
+
+        state = ds;
+
+        return state;
     }
 }

@@ -32,6 +32,7 @@ function normalice(str) {
 }
 
 export default async function getCityInputValue() {
+    let finalValue = null;
     const value = document.querySelector('.desired-location-input').value.toLowerCase();
     const cityRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']+$/;
 
@@ -45,11 +46,18 @@ export default async function getCityInputValue() {
         const cityName = await realCity[0]?.['display_name'];
         const city = await cityName?.split(',')[0].toLowerCase();
 
-        let cityToCompare = normalice(city);
-        let valueToCompare = normalice(value);
+        const regex = /^[ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿẞ]+$/;
 
-        if (cityToCompare.includes(valueToCompare)) {
-            return value;
+        if (regex.test(value)) {
+            let cityToCompare = normalice(city);
+            let valueToCompare = normalice(value);
+
+            if (cityToCompare.includes(valueToCompare)) finalValue = value;
+        } else {
+            finalValue = value;
         }
+
+        return finalValue;
     }
+
 } 

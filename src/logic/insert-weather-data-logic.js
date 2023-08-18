@@ -16,6 +16,7 @@ import {
 import getUserLocation from "@utils/get-location";
 import getCityInputValue from "@utils/get-user-input-value";
 import { showTextError, hideTextError } from '@utils/show-hide-text-error';
+import { setLoading } from "@utils/load-modal";
 
 async function setWeatherData({ latitude = null, longitude = null, city = null }) {
     let long = await longitude;
@@ -34,6 +35,7 @@ async function setWeatherData({ latitude = null, longitude = null, city = null }
         insertHourStatusComponent({ hourlyForecast });
         insertWeekStatusComponent({ weeklyForecast });
         showHideMenu();
+        setLoading();
     } else {
         return;
     }
@@ -45,12 +47,14 @@ export default async function handdleWeatherData(e) {
     if (e.target.className === 'your-location-btn') {
         e.preventDefault();
         weatherForm.reset();
+        setLoading();
         let { latitude, longitude } = await getUserLocation();
         setWeatherData({ latitude, longitude });
         hideTextError();
     } else if (e.target.className === 'search-city-btn') {
         e.preventDefault();
         let city = await getCityInputValue();
+        setLoading();
         if (city !== undefined) {
             setWeatherData({ city });
             weatherForm.reset();
