@@ -34,7 +34,7 @@ function normalice(str) {
 export default async function getCityInputValue() {
     let finalValue = null;
     const value = document.querySelector('.desired-location-input').value.toLowerCase();
-    const cityRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s']+$/;
+    const cityRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s',]+$/;
 
     if (value !== "" && cityRegex.test(value)) {
         const realCity = await getCityData({ city: value });
