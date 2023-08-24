@@ -41,6 +41,8 @@
     --arrow-right: url('@images/angle-circle-right-dark-mode.png');
     --close-menu-icon: url('@images/close-menu-icon-dark-mode.png');
     --location--icon: url('@images/location-icon.png');
+    --github-logo: url('@images/Github-logo-dark-mode.png');
+    --linkedin-logo: url('@images/linkedin-logo-dark-mode.png');
 }
 
 /* Rebooting general styles */
@@ -448,6 +450,44 @@ a {
     }
 }
 
+/* Footer */
+.app-footer {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.app-footer p {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.app-footer .social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+.app-footer .social-media > li > a > span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.app-footer .social-media > li:first-child > a > span {
+    background-image: var(--github-logo);
+}
+
+.app-footer .social-media > li:last-child > a > span {
+    background-image: var(--linkedin-logo);
+}
+
 /* Utils */
 .hidden {
     display: none;
@@ -461,6 +501,11 @@ a {
 
     .day-status-layout {
         margin-block-end: 2rem;
+    }
+
+    .app-footer {
+        flex-direction: column;
+        gap: .5rem;
     }
 }
 
