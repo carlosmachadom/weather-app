@@ -11,7 +11,7 @@ This is a weather application that allows you to search for the current weather 
 
 ## Screenshots
 
-[![Weather App](https://ibb.co/CJk39q2)](https://weather-app-cdm.netlify.app/)
+[![Weather App](https://i.ibb.co/SQh4m2r/weather-app.png)](https://weather-app-cdm.netlify.app/)
 
 ## How to Use
 
@@ -73,7 +73,7 @@ Esta es una aplicación de clima que te permite buscar el clima actual para casi
 
 ## Capturas de Pantalla
 
-[![Weather App](https://ibb.co/CJk39q2)](https://weather-app-cdm.netlify.app/)
+[![Weather App](https://i.ibb.co/SQh4m2r/weather-app.png)](https://weather-app-cdm.netlify.app/)
 
 ## Cómo Usar
 
