@@ -2,6 +2,7 @@ function getCurrentDate(tz) {
     let date = new Date();
     let currentTimeZone = tz;
     const region = Intl.DateTimeFormat().resolvedOptions();
+    let langDate;
 
     let dateOptions = {
         timeZone: currentTimeZone,
@@ -11,7 +12,13 @@ function getCurrentDate(tz) {
         weekday: 'long'
     }
 
-    let currentDate = date.toLocaleDateString(region.locale, dateOptions).split(' ');
+    if (region.locale !== "en-US") {
+        langDate = "en-US";
+    } else { 
+        langDate = region.locale;
+    }
+
+    let currentDate = date.toLocaleDateString(langDate, dateOptions).split(' ');
 
     let day = currentDate[2].split(',')[0];
     let month = currentDate[1];
