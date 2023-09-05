@@ -1,7 +1,11 @@
 {
-  "name": "clock",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "Digital clock",
+  "description": "The Weather App provides instant access to accurate weather information for any location worldwide. Get current weather conditions and forecasts with a user-friendly interface. Whether you're planning your day or just want to know the weather where you are, this app has you covered.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carlosmachadom/weather-app"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,9 +14,26 @@
     "dev:watch": "webpack serve --config webpack.config.dev.js"
   },
   "keywords": [
-    "Clock"
+    "weather",
+    "meteorology",
+    "weather forecast",
+    "weather application",
+    "geolocation",
+    "web",
+    "weather API",
+    "open-source",
+    "front-end",
+    "web development",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Node.js",
+    "webpack",
+    "RapidAPI",
+    "Nominatim",
+    "web application"
   ],
-  "author": "",
+  "author": "Carlos Machado",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.5",
