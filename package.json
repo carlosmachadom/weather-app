@@ -33,7 +33,10 @@
     "Nominatim",
     "web application"
   ],
-  "author": "Carlos Machado",
+  "author": { 
+    "name": "Carlos Machado",
+    "email": "carlos.machadomejia@gmail.com" 
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.5",
